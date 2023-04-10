@@ -1,0 +1,1 @@
+gcc -I ./include/ ./src/*.c -lcurl -o ./bin/AniME.exe
