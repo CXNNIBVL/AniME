@@ -1,8 +1,8 @@
 # AniME Project
 
-## Features
+# Features
 
-### Search for Anime and Display Anime from API
+## Search for Anime and Display Anime from API
 ```json
 {
   "data": {
@@ -18,7 +18,7 @@
   }
 }
 ```
-### Save Anime to DB -> Props:
+## Save Anime to DB -> Props:
 ```json
 {
     "status": "string", //Currently Watching, Completed, Plan to Watch
@@ -27,26 +27,26 @@
     //...api_obj_fields,
 }
 ```
-### Display Saved Anime as List (Access DB): 
+## Display Saved Anime as List (Access DB): 
 Rank by CurrentlyWatching->Completed(Score-top-to-bottom)->PlanToWatch
 
 **DISPLAY Color coded** like MyAniList
 
-### Display Saved Anime Details from DB cache
+## Display Saved Anime Details from DB cache
 
-### Edit Saved Anime: 
+## Edit Saved Anime: 
 Change Status, Change Score, Change Progress
 
-### Purge DB 
+## Purge DB 
 
-## Resources:
+# Resources:
 
-### [Jikan](https://jikan.moe/) <u>[API](https://docs.api.jikan.moe/#tag/anime)</u>
+## [Jikan](https://jikan.moe/) <u>[API](https://docs.api.jikan.moe/#tag/anime)</u>
 For Anime details fetching
 
 
 
-### <u>[Curl](https://curl.se/libcurl/c/)</u>
+## <u>[Curl](https://curl.se/libcurl/c/)</u>
 For Web Requests -> API Access and Data fetching
 
 <u>[Curl Tutorial](https://www.youtube.com/watch?v=daA-KBKfJ_o&t=748s)</u>
@@ -65,4 +65,25 @@ And: <u>**-lcurl**</u> flag in build script
 ```bash
 gcc -I ... ./src/MyFile.c -lcurl -o ...
 ```
-### <u>[SqLite Database](https://www.sqlite.org/cintro.html)</u>
+## <u>[SqLite Database](https://www.tutorialspoint.com/sqlite/index.htm)</u>
+
+If not installed, run: 
+```bash
+sudo apt-get install sqlite
+```
+
+And then link against it in the build script with **<u> -lsqlite </u>** :
+```bash
+gcc -I ... ./src/MyFile.c -lcurl -lsqlite3 -o ...
+```
+
+And use it like:
+```c
+//MyFile.c
+
+#include <sqlite3.h>
+
+void myfunc(){
+    ...
+}
+```

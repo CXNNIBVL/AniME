@@ -1,1 +1,1 @@
-gcc -I ./include/ ./src/*.c -lcurl -o ./bin/AniME.exe
+gcc -I ./include/ ./src/*.c -lcurl -lsqlite3 -o ./bin/AniME.exe
