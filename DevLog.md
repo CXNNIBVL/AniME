@@ -21,10 +21,10 @@
 ## Save Anime to DB -> Props:
 ```json
 {
+    "jikan_api_obj_fields": ...,
     "status": "string", //Currently Watching, Completed, Plan to Watch
     "score": 0, //to 10
     "progress": 0,
-    //...api_obj_fields,
 }
 ```
 ## Display Saved Anime as List (Access DB): 
@@ -42,14 +42,15 @@ Change Status, Change Score, Change Progress
 # Resources:
 
 ## [Jikan](https://jikan.moe/) <u>[API](https://docs.api.jikan.moe/#tag/anime)</u>
-For Anime details fetching
+For Anime data fetching
 
 
 
 ## <u>[Curl](https://curl.se/libcurl/c/)</u>
-For Web Requests -> API Access and Data fetching
+- For Web Requests -> API Access and Data fetching
+- See documentation and tuts on the official website
 
-<u>[Curl Tutorial](https://www.youtube.com/watch?v=daA-KBKfJ_o&t=748s)</u>
+<u>[Curl YT Tutorial](https://www.youtube.com/watch?v=daA-KBKfJ_o&t=748s)</u>
 
 Use in:
 ```c
@@ -67,9 +68,11 @@ gcc -I ... ./src/MyFile.c -lcurl -o ...
 ```
 ## <u>[SqLite Database](https://www.tutorialspoint.com/sqlite/index.htm)</u>
 
+- See docs in linked title
+
 If not installed, run: 
 ```bash
-sudo apt-get install sqlite
+sudo apt-get install sqlite3
 ```
 
 And then link against it in the build script with **<u> -lsqlite </u>** :
@@ -77,7 +80,7 @@ And then link against it in the build script with **<u> -lsqlite </u>** :
 gcc -I ... ./src/MyFile.c -lcurl -lsqlite3 -o ...
 ```
 
-And use it like:
+Then use it like:
 ```c
 //MyFile.c
 
@@ -87,3 +90,52 @@ void myfunc(){
     ...
 }
 ```
+
+## [cJSON](https://github.com/DaveGamble/cJSON)
+For API Data Parsing
+
+- See docs on the title linked GitHub Page
+
+Include in build script with Include path and source file like:
+```bash
+gcc -I ./vendor/cJSON/  ./vendor/cJSON/cJSON.c ./src/MyFile.c -lcurl -lsqlite3 -o ...
+```
+
+And use it like:
+```c
+//MyFile.c
+
+#include <cJSON.h>
+
+void myfunc(){
+    ...
+}
+```
+
+## [E4C (Exceptions for C)](https://github.com/guillermocalvo/exceptions4c)
+
+For runtime error handling
+
+Include in build script with include path and source files like:
+```bash
+gcc -I ./vendor/exceptions4c/  ./vendor/exceptions4c/e4c.c ./src/MyFile.c -lcurl -lsqlite3 -o ...
+```
+
+And use it like:
+```c
+//MyFile.c
+
+#include <e4c.h>
+
+void myfunc(){
+    ...
+}
+```
+
+## Setup
+
+`git clone` the branch "dev-stump" to your local machine. It provides:
+- The simple project directory structure
+- The app build script `build.sh` 
+- A vendor directory with the dependencies for cJSON and e4c
+- An install script `install_dependencies.sh` for curl and sqlite3
