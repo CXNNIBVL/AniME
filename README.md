@@ -53,6 +53,8 @@ For Anime data fetching
 
 <u>[Curl YT Tutorial](https://www.youtube.com/watch?v=daA-KBKfJ_o&t=748s)</u>
 
+<u>[Curl GitBook](https://everything.curl.dev/)</u>
+
 Use in:
 ```c
 //MyFile.c
@@ -113,25 +115,7 @@ void myfunc(){
 }
 ```
 
-## [E4C (Exceptions for C)](https://github.com/guillermocalvo/exceptions4c)
-
-For runtime error handling
-
-Include in build script with include path and source files like:
-```bash
-gcc -I ./vendor/exceptions4c/  ./vendor/exceptions4c/e4c.c ./src/MyFile.c -lcurl -lsqlite3 -o ...
-```
-
-And use it like:
-```c
-//MyFile.c
-
-#include <e4c.h>
-
-void myfunc(){
-    ...
-}
-```
+## [Colored Terminal output (Stackoverflow)](https://stackoverflow.com/a/3219471)
 
 ## Setup
 
