@@ -10,7 +10,7 @@ Small MyAnimeList CLI clone written in C. Just a pastime fiddle as a graduation 
     "mal_id": 0, //internal
     "url": "string",
     "title_english": "string",
-    "title_japanese": "string",
+    "title": "string",
     "type": "TV",
     "episodes": 0,
     "synopsis": "string",

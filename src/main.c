@@ -3,6 +3,7 @@
 
 #include "printc.h"
 #include "jikan.h"
+#include "aniutils.h"
 
 int app_init() {
 
@@ -33,6 +34,9 @@ void print_actions() {
     printc_cyan("%s", actions);
 }
 
+extern void action_search_anime();
+extern void action_view_anime_list();
+
 int main() {
 
     printc_clearscreen();
@@ -41,14 +45,14 @@ int main() {
         app_cleanup();
         return -1;
     }
-
+    
     while(1) {
         
         printc_clearscreen();
         print_actions();
 
         int action = 69;
-        scanf("%d", &action);
+        getVar(NULL, "%d", &action);
 
         switch (action)
         {
@@ -57,15 +61,14 @@ int main() {
             return 0;
             break;
         case 1:
-            //search for anime
+            action_search_anime();
             break;
         case 2:
-            //view anime list
+            action_view_anime_list();
             break;
         default:
             break;
         }
-
     }
 
     return 0;
